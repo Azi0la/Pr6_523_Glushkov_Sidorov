@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,10 +91,35 @@ namespace BankAccountNS
         {
             BankAccount ba = new BankAccount("Mr. Roman Abramovich", 11.99);
 
-            ba.Credit(5.77);
-            ba.Debit(11.22);
+            
             Console.WriteLine("Current balance is ${0}", ba.Balance);
-            Console.ReadLine();
+            string insert = "";
+
+            while (insert != "0")
+            {
+                Console.WriteLine("Select operation:\n" +
+                    "1) Debit\n" +
+                    "2) Credit");
+                insert = Console.ReadLine();
+                int sum;
+                switch (insert)
+                {
+                    case "1":
+                        Console.Write("Sum: ");
+                        sum = int.Parse(Console.ReadLine());
+                        ba.Debit(sum);
+                        break;
+                    case "2":
+                        Console.Write("Sum: ");
+                        sum = int.Parse(Console.ReadLine());
+                        ba.Credit(sum);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input!");
+                        break;
+                }
+                Console.WriteLine("Current balance is ${0}", ba.Balance);
+            }
         }
     }
 }
