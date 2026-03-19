@@ -101,17 +101,17 @@ namespace BankAccountNS
                     "1) Debit\n" +
                     "2) Credit");
                 insert = Console.ReadLine();
-                int sum;
+                double sum;
                 switch (insert)
                 {
                     case "1":
                         Console.Write("Sum: ");
-                        sum = int.Parse(Console.ReadLine());
+                        sum = double.Parse(Console.ReadLine());
                         ba.Debit(sum);
                         break;
                     case "2":
                         Console.Write("Sum: ");
-                        sum = int.Parse(Console.ReadLine());
+                        sum = double.Parse(Console.ReadLine());
                         ba.Credit(sum);
                         break;
                     default:
